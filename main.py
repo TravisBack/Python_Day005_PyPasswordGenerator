@@ -13,9 +13,9 @@ matrix = [letters, numbers, symbols]
 
 print("Welcome to the PyPassword Generator!")
 
-numberOfLetters = int(input("How many letters would you like in your password? "))
-numberOfSymbols = int(input("How many symbols would you like? "))
-numberOfNumbers = int(input("How many numbers would you like? "))
+numberOfLetters = 4  # int(input("How many letters would you like in your password? "))
+numberOfSymbols = 2  # int(input("How many symbols would you like? "))
+numberOfNumbers = 2  # int(input("How many numbers would you like? "))
 
 generatedPassword = ""
 
@@ -25,18 +25,21 @@ while numberOfLetters > 0 or numberOfSymbols > 0 or numberOfNumbers > 0:
     passwordChar = str(charType[random.randint(0, len(charType) - 1)])
 
     if charType == letters:
+        letters.remove(passwordChar)
         if numberOfLetters > 0:
             numberOfLetters -= 1
         else:
             matrix.remove(letters)
             continue
     elif charType == numbers:
+        numbers.remove(passwordChar)
         if numberOfNumbers > 0:
             numberOfNumbers -= 1
         else:
             matrix.remove(numbers)
             continue
     elif charType == symbols:
+        symbols.remove(passwordChar)
         if numberOfSymbols > 0:
             numberOfSymbols -= 1
         else:
